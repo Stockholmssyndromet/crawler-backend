@@ -1,7 +1,10 @@
 const express = require("express");
 const { crawler } = require("./utils/crawler");
+const cors = require("cors");
+
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 let url, searchText;
@@ -10,7 +13,7 @@ app.get("/crawl", async (req, res) => {
   if (!url) return res.status(400).send("url이 입력되지 않았습니다.");
   if (!searchText)
     return res.status(400).send("searchText가 입력되지 않았습니다.");
-  return res.status(200).json(await crawler(url, searchText));
+  return res.status(200).json({ url, ...(await crawler(url, searchText)) });
 });
 
 app.post("/crawl", async (req, res) => {
