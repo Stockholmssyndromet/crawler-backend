@@ -1,0 +1,15 @@
+{
+  "name": "crawler-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.2",
+    "puppeteer": "^21.6.1"
+  },
+  "scripts": {
+    "start": "nodemon src/app.js"
+  }
+}
